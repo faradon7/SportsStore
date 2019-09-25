@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>f844c17d-74f9-42dd-a26e-c363ec5b63f8</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\bower_components\bower_components\**" />
+    <Content Remove="wwwroot\bower_components\bower_components\**" />
+    <EmbeddedResource Remove="wwwroot\bower_components\bower_components\**" />
+    <None Remove="wwwroot\bower_components\bower_components\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\bower_components\bower.json" />
+  </ItemGroup> 
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />  
+  </ItemGroup>
+
+</Project>
