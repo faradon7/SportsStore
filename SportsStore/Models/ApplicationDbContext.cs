@@ -10,5 +10,9 @@ namespace SportsStore.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<CustomerProfile> CustomerProfiles { get;set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
+        public DbSet<Sale> Sales { get; set; }
     }
 }

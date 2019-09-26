@@ -33,7 +33,8 @@ namespace SportsStore
             options.UseSqlServer(
                 Configuration.GetConnectionString("SportStoreIdentity")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>()
                 .AddDefaultTokenProviders();
 

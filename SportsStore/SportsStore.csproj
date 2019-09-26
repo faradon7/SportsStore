@@ -13,13 +13,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190926164520_extendingApp.cs" />
+    <Compile Remove="Migrations\20190926164520_extendingApp.Designer.cs" />
+    <Compile Remove="Migrations\20190926165520_extendingApp.cs" />
+    <Compile Remove="Migrations\20190926165520_extendingApp.Designer.cs" />
+    <Compile Remove="Migrations\20190926175820_extendingApp.cs" />
+    <Compile Remove="Migrations\20190926175820_extendingApp.Designer.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190925232303_IdentityToApplication.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190925232303_IdentityToApplication.Designer.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926162127_extendingAppliation.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926162127_extendingAppliation.Designer.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926162845_extendingAppliation.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926162845_extendingAppliation.Designer.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926164003_extendingAppliation.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926164003_extendingAppliation.Designer.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926164407_IdetityToAplplication.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190926164407_IdetityToAplplication.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\bower_components\bower.json" />
   </ItemGroup> 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />  
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />  
   </ItemGroup>
 
 </Project>

@@ -11,10 +11,10 @@
        @foreach (Order o in Model)
        {
            <tr>
-               <td>@o.Name</td><td>@o.Zip</td><th>Product</th><th>Quantity</th>
+               <td>@o.Name</td><td>@o.Location.Zip</td><th>Product</th><th>Quantity</th>
                <td>
                    <form asp-action="MarkShipped" method="post">
-                        <input type="hidden" name="orderID" value="@o.OrderID" />
+                        <input type="hidden" name="orderID" value="@o.ID" />
                        <button type="submit" class="btn btn-sm btn-danger">
                            Ship
                        </button>

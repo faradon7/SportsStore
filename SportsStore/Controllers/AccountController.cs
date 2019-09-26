@@ -12,15 +12,17 @@ namespace SportsStore.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private UserManager<IdentityUser> userManager;
-        private SignInManager<IdentityUser> signInManager;
+        private UserManager<ApplicationUser> userManager;
+        private SignInManager<ApplicationUser> signInManager;
+        private RoleManager<ApplicationRole> roleManager;
 
-        public AccountController(UserManager<IdentityUser> userMgr,
-            SignInManager<IdentityUser> signInMgr)
+        public AccountController(UserManager<ApplicationUser> userMgr,
+            SignInManager<ApplicationUser> signInMgr, RoleManager<ApplicationRole> roleMngr)
         {
             userManager = userMgr;
             signInManager = signInMgr;
-            IdentitySeedData.EnsurePopulated(userMgr).Wait();       //only for enviroment = production
+            roleManager = roleMngr;
+            IdentitySeedData.EnsurePopulated(userMgr, roleMngr).Wait();       //only for enviroment = production
         }
 
         [AllowAnonymous]
@@ -36,7 +38,7 @@ namespace SportsStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = await userManager.FindByNameAsync(loginModel.Name);
+                ApplicationUser user = await userManager.FindByNameAsync(loginModel.Name);
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();
@@ -56,6 +58,13 @@ namespace SportsStore.Controllers
         {
             await signInManager.SignOutAsync();
             return Redirect(returnUrl);
+        }
+
+        // GET: SignUp
+        [AllowAnonymous]
+        public ActionResult SignUp()
+        {
+            return View();
         }
     }
 }

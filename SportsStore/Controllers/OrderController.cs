@@ -16,14 +16,14 @@ namespace SportsStore.Controllers
             cart = cartService;
         }
 
-        [Authorize]
+        [Authorize(Roles ="Administrator")]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public IActionResult MarkShipped(int orderID)
         {
-            Order order = repository.Orders.FirstOrDefault(o => o.OrderID == orderID);
+            Order order = repository.Orders.FirstOrDefault(o => o.ID == orderID);
             if (order != null)
             {
                 order.Shipped = true;
