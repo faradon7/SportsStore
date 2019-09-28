@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using SportsStore.Models;
+using SportsStore.Infrastructure;
 
 namespace SportsStore.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = Roles.Admin)]
     public class AdminController : Controller
     {
         private IProductRepository repository;

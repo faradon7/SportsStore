@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using SportsStore.Models;
 using System.Linq;
+using SportsStore.Infrastructure;
 
 namespace SportsStore.Controllers
 {
@@ -16,11 +17,11 @@ namespace SportsStore.Controllers
             cart = cartService;
         }
 
-        [Authorize(Roles ="Administrator")]
+        [Authorize(Roles = Roles.Admin)]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = Roles.Admin)]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = repository.Orders.FirstOrDefault(o => o.ID == orderID);

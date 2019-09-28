@@ -3,6 +3,7 @@
     ViewBag.Title = "Sign Up";
     Layout = "_AdminLayout";
 }
+
 <div class="text-danger" asp-validation-summary="All"></div>
 <form asp-action="SignUp" asp-controller="Account" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
@@ -10,6 +11,10 @@
         <label asp-for="FirstName"></label>
         <div><span asp-validation-for="FirstName" class="text-danger"></span></div>
         <input asp-for="FirstName" class="form-control" />
+
+        <label asp-for="UserName"></label>
+        <div><span asp-validation-for="UserName" class="text-danger"></span></div>
+        <input asp-for="UserName" class="form-control" />
     </div> 
     <div class="form-group">
         <label asp-for="Email"></label>
@@ -26,5 +31,6 @@
         <div><span asp-validation-for="ConfirmPassword" class="text-danger"></span></div>
         <input asp-for="ConfirmPassword" class="form-control" />
     </div>
+
     <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>

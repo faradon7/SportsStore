@@ -9,13 +9,20 @@ namespace SportsStore.Models.ViewModels
     public class SignUpViewModel
     {
         [Required]
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Логин")]
+        public string UserName { get; set; }
+
+
+
+        [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [Display(Name = "Имя")]
-        public string FirstName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Длина {0} должна быть не менее {2} символов.", MinimumLength = 6)]

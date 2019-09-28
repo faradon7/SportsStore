@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
-    public class Location
+    public class Location : ILocationViewModel
     {
         public int ID { get; set; }
 

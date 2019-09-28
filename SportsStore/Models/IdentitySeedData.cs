@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using SportsStore.Infrastructure;
 
 namespace SportsStore.Models
 {
@@ -9,10 +10,6 @@ namespace SportsStore.Models
     {
         private const string adminUser = "Admin";
         private const string adminPassword = "Secret123$";
-        public const string role_admin = "Administrator";
-        public const string desc_admin = "Администратор сайта, имеет полный доступ";
-        public const string role_user = "User";
-        public const string desc_user = "Пользователь сайта, имеет доступ только к своему профилю";
 
         /*public static async void EnsurePopulated(IApplicationBuilder app) */      //This used for environment = development
         public static async Task EnsurePopulated(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)     //this using fo environment = production
@@ -21,20 +18,20 @@ namespace SportsStore.Models
             //    .GetRequiredService<UserManager<IdentityUser>>();
 
             //Adding Roles
-            if (await roleManager.FindByNameAsync(role_admin) == null)
+            if (await roleManager.FindByNameAsync(Roles.Admin) == null)
             {
-                await roleManager.CreateAsync(new ApplicationRole(role_admin, desc_admin));
+                await roleManager.CreateAsync(new ApplicationRole(Roles.Admin, Roles.AdminDescription));
             }
 
-            if (await roleManager.FindByNameAsync(role_user) == null)
+            if (await roleManager.FindByNameAsync(Roles.User) == null)
             {
-                await roleManager.CreateAsync(new ApplicationRole(role_user, desc_user));
+                await roleManager.CreateAsync(new ApplicationRole(Roles.User, Roles.UserDecription));
             }
 
 
             //ApplicationUser user = await userManager.FindByIdAsync(adminUser);
 
-            if ((await userManager.GetUsersInRoleAsync(role_admin)).Count == 0)
+            if ((await userManager.GetUsersInRoleAsync(Roles.Admin)).Count == 0)
             {
                 ApplicationUser admin = new ApplicationUser(adminUser);
 
@@ -43,7 +40,7 @@ namespace SportsStore.Models
                 if (result.Succeeded)
                 {
                     await userManager.AddPasswordAsync(admin, adminPassword);
-                    await userManager.AddToRoleAsync(admin, role_admin);
+                    await userManager.AddToRoleAsync(admin, Roles.Admin);
                 }
             }
         }
