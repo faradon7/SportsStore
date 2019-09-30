@@ -46,9 +46,20 @@ namespace SportsStore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ApplicationUserID");
+                    b.Property<string>("ApplicationUserID");
 
-                    b.Property<int>("LocationID");
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LastName")
+                        .HasMaxLength(50);
+
+                    b.Property<int?>("LocationID");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(15);
 
                     b.HasKey("ID");
 
@@ -214,8 +225,7 @@ namespace SportsStore.Migrations
                 {
                     b.HasOne("SportsStore.Models.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("LocationID");
                 });
 
             modelBuilder.Entity("SportsStore.Models.FeedBack", b =>

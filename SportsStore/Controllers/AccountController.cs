@@ -82,7 +82,6 @@ namespace SportsStore.Controllers
                     ApplicationUser user = new ApplicationUser
                     {
                         UserName = model.UserName,
-                        FirstName = model.FirstName,
                         Email = model.Email
                     };
 

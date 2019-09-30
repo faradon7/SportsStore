@@ -3,7 +3,10 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="~/bower_components/bower_components/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet"
+          asp-href-include="~/BootStrap/css/*.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <link rel="stylesheet" asp-href-include="~/fontawesome/css/*.css" />
     <title>@ViewBag.Title</title>
     <style>
         .input-validation-error {

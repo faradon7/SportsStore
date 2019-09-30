@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width" />
 
     <link rel="stylesheet"
-          asp-href-include="/bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css"
+          asp-href-include="~/BootStrap/css/*.css"
           asp-href-exclude="**/*-reboot*,**/*-grid*" />
-    <link rel="stylesheet" asp-href-include="~/bower_components/bower_components/fontawesome/css/*.css" />
+    <link rel="stylesheet" asp-href-include="~/fontawesome/css/*.css" />
 
     <title>SportsStore</title>
 </head>
@@ -30,7 +30,11 @@
                         Sign Up
                     </button>
                 </form>
-            </div>} else { 
+            </div>} else {
+    <h6 class="ml-2 mt-1 mr-1">
+        Hello, 
+        <a asp-controller="Profile" asp-action="Index" class="text-success"><i class="fas fa-user-cog"></i>@User.Identity.Name!</a>
+    </h6>
             <div class="pull-right">
                 <a class="btn btn-sm btn-primary"
                    asp-action="LogOut" asp-controller="Account">Log Out</a>

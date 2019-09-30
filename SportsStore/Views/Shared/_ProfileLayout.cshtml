@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet"
+          asp-href-include="~/BootStrap/css/*.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <link rel="stylesheet" asp-href-include="~/fontawesome/css/*.css" />
+
+    <title>SportsStore</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse bg-inverse" role-navigation>
+        <a class="navbar-brand" href="#">SPORTS STORE</a>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="btn-group pull-right">
+                <form asp-action="Login" asp-controller="Account" method="get">
+                    <button type="submit" class="btn btn-outline-info btn-md" style="float:right">
+                        Log In
+                    </button>
+                </form>
+                <form asp-action="SignUp" asp-controller="Account" method="get">
+                    <button type="submit" class="btn btn-outline-secondary btn-md" style="float:right">
+                        Sign Up
+                    </button>
+                </form>
+            </div>}
+        else {
+            <div class="pull-right">
+                <a class="btn btn-sm btn-primary"
+                   asp-action="LogOut" asp-controller="Account">Log Out</a>
+            </div>}
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col-3">
+            <a class="btn btn-block btn-info" asp-action="Index"
+               asp-controller="Profile">
+                Settings
+            </a>
+            <a class="btn btn-block btn-info" asp-action="Index"
+               asp-controller="Profile">
+                My Cards
+            </a>
+            <a class="btn btn-block btn-info" asp-action=""
+               asp-controller="">
+                My Orders
+            </a>
+            <a class="btn btn-block btn-info" asp-action=""
+               asp-controller="">
+                Viewed products
+            </a>
+            <a class="btn btn-block btn-info" asp-action="GetFeedbacks"
+               asp-controller="Profile">
+                FeedBacks
+            </a>
+            <a class="btn btn-block btn-info" asp-action="Index"
+               asp-controller="Cart">
+                Shopping Cart
+            </a>
+        </div>
+        <div class="col-9">
+            <div class="text-center ">
+                <h5 class="text-info font-italic">@ViewBag.Title</h5>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

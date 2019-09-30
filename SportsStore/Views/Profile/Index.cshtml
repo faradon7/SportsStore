@@ -1,0 +1,59 @@
+﻿@model CustomerProfile
+@{
+    Layout = "_ProfileLayout";
+    ViewBag.Title = "Profile Settings";
+}
+
+<form asp-controller="Profile" asp-action="SaveSettings" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <div><span asp-validation-for="FirstName" class="text-danger"></span></div>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <div><span asp-validation-for="PhoneNumber" class="text-danger"></span></div>
+        <input type="tel" asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <div><span asp-validation-for="BirthDate" class="text-danger"></span></div>
+        <input asp-format= "{0:yyyy-MM-dd}" asp-for="BirthDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Line1"></label>
+        <div><span asp-validation-for="Location.Line1" class="text-danger"></span></div>
+        <input asp-for="Location.Line1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Line2"></label>
+        <div><span asp-validation-for="Location.Line2" class="text-danger"></span></div>
+        <input asp-for="Location.Line2" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Line3"></label>
+        <div><span asp-validation-for="Location.Line3" class="text-danger"></span></div>
+        <input asp-for="Location.Line3" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Region"></label>
+        <div><span asp-validation-for="Location.Region" class="text-danger"></span></div>
+        <input asp-for="Location.Region" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Country"></label>
+        <div><span asp-validation-for="Location.Country" class="text-danger"></span></div>
+        <input asp-for="Location.Country" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.City"></label>
+        <div><span asp-validation-for="Location.City" class="text-danger"></span></div>
+        <input asp-for="Location.City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location.Zip"></label>
+        <div><span asp-validation-for="Location.Zip" class="text-danger"></span></div>
+        <input asp-for="Location.Zip" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-block btn-primary">Save</button>
+</form>

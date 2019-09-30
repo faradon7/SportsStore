@@ -9,10 +9,6 @@ namespace SportsStore.Models.ViewModels
     public class SignUpViewModel
     {
         [Required]
-        [Display(Name = "Имя")]
-        public string FirstName { get; set; }
-
-        [Required]
         [Display(Name = "Логин")]
         public string UserName { get; set; }
 

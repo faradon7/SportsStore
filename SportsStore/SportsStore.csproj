@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\bower_components\bower_components\**" />
-    <Content Remove="wwwroot\bower_components\bower_components\**" />
-    <EmbeddedResource Remove="wwwroot\bower_components\bower_components\**" />
-    <None Remove="wwwroot\bower_components\bower_components\**" />
+    <Compile Remove="wwwroot\bower_components\**" />
+    <Content Remove="wwwroot\bower_components\**" />
+    <EmbeddedResource Remove="wwwroot\bower_components\**" />
+    <None Remove="wwwroot\bower_components\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,10 +29,8 @@
     <Compile Remove="Migrations\AppIdentityDb\20190926164003_extendingAppliation.Designer.cs" />
     <Compile Remove="Migrations\AppIdentityDb\20190926164407_IdetityToAplplication.cs" />
     <Compile Remove="Migrations\AppIdentityDb\20190926164407_IdetityToAplplication.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\bower_components\bower.json" />
+    <Compile Remove="Migrations\AppIdentityDb\20190928223241_userIDtoInt.cs" />
+    <Compile Remove="Migrations\AppIdentityDb\20190928223241_userIDtoInt.Designer.cs" />
   </ItemGroup> 
 
   <ItemGroup>

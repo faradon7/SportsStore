@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
-    public class Location : ILocationViewModel
+    public class Location 
     {
-        public int ID { get; set; }
+        public int ID { get; set; } 
 
         [Required(ErrorMessage = "Please enter the first address line")]
         public string Line1 { get; set; }

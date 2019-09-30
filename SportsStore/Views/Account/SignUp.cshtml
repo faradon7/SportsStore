@@ -8,14 +8,10 @@
 <form asp-action="SignUp" asp-controller="Account" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="form-group">
-        <label asp-for="FirstName"></label>
-        <div><span asp-validation-for="FirstName" class="text-danger"></span></div>
-        <input asp-for="FirstName" class="form-control" />
-
         <label asp-for="UserName"></label>
         <div><span asp-validation-for="UserName" class="text-danger"></span></div>
         <input asp-for="UserName" class="form-control" />
-    </div> 
+    </div>
     <div class="form-group">
         <label asp-for="Email"></label>
         <div><span asp-validation-for="Email" class="text-danger"></span></div>
