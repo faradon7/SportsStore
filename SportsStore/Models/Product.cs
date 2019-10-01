@@ -13,6 +13,7 @@ namespace SportsStore.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage ="Please enter a positive price")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Price { get; set; }
 
         public string Category { get; set; }

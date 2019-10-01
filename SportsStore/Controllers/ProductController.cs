@@ -17,6 +17,7 @@ namespace SportsStore.Controllers
             repository = repo;
         }
 
+
         public ViewResult List(string category, int productPage = 1)
         {
             var a = HttpContext.User.Identity.Name;
