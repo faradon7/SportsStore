@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using SportsStore.Models.ViewModels;
 using SportsStore.Models;
 using SportsStore.Infrastructure;
@@ -12,9 +11,13 @@ namespace SportsStore.Controllers
 {
     public class AccountController : Controller
     {
+        #region private properties
+
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
         private RoleManager<ApplicationRole> roleManager;
+
+        #endregion
 
         public AccountController(UserManager<ApplicationUser> userMgr,
             SignInManager<ApplicationUser> signInMgr, RoleManager<ApplicationRole> roleMngr)
@@ -55,6 +58,7 @@ namespace SportsStore.Controllers
                         { 
                             return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
                         }
+
                         return Redirect(loginModel?.ReturnUrl ?? "/");
                     }
                 }
@@ -68,11 +72,12 @@ namespace SportsStore.Controllers
         public async Task<RedirectResult> Logout(string returnUrl = "/")
         {
             await signInManager.SignOutAsync();
+
             return Redirect(returnUrl);
         }
 
         [HttpGet]
-        public async Task<IActionResult> SignUp()
+        public IActionResult SignUp()
             => View(new SignUpViewModel());
 
         [HttpPost]
@@ -81,8 +86,8 @@ namespace SportsStore.Controllers
             if (ModelState.IsValid)
             {
                 await signInManager.SignOutAsync();
-
                 var result = await userManager.FindByEmailAsync(model.Email);
+
                 if (result == null)
                 {
                     ApplicationUser user = new ApplicationUser
@@ -105,6 +110,7 @@ namespace SportsStore.Controllers
             var error = $"A user with the email {model.Email} is already registered.";
             ModelState.AddModelError("", error);
             TempData["message"] = error;
+
             return View(model);
         }
     }

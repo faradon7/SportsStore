@@ -12,7 +12,8 @@
 </head>
 <body>
     <div class="navbar navbar-inverse bg-inverse" role-navigation>
-        <a class="navbar-brand" href="#">SPORTS STORE</a>
+        <a class="navbar-brand" asp-action="List" asp-controller="Product"
+           asp-route-category="">SPORTS STORE</a>
         <div class="pull-right ml-auto">
             @await Component.InvokeAsync("CartSummary")
         </div>

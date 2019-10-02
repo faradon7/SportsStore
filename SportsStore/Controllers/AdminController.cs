@@ -33,7 +33,6 @@ namespace SportsStore.Controllers
             }
             else
             {
-                //there is something wrong with the data values
                 return View(product);
             }
         }
@@ -48,6 +47,7 @@ namespace SportsStore.Controllers
             {
                 TempData["message"] = $"{deletedProduct.Name} was deleted";
             }
+
             return RedirectToAction("Index");
         }
 

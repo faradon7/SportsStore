@@ -68,7 +68,7 @@ namespace SportStore.Tests
 
             //Assert
             Assert.Equal(2, target.Lines.Count());
-            Assert.Equal(0, target.Lines.Where(l => l.Product == p2).Count());
+            Assert.Empty(target.Lines.Where(l => l.Product == p2));
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace SportStore.Tests
             target.Clear();
 
             //Assert
-            Assert.Equal(0, target.Lines.Count());
+            Assert.Empty(target.Lines);
         }
     }
 }

@@ -15,11 +15,11 @@ namespace SportsStore.Models
             context = ctx;
         }
         public IQueryable<CustomerProfile> Profiles => context.CustomerProfiles.Include(p => p.Location);
+
         public void SaveProfile(CustomerProfile profile)
         {
             var dbEntryProfile = context.CustomerProfiles.Include(p => p.Location).FirstOrDefault(
                 p => p.ApplicationUserID == profile.ApplicationUserID);
-
 
             if (dbEntryProfile == null)
             {
@@ -32,11 +32,6 @@ namespace SportsStore.Models
                 context.Entry(dbEntryProfile).CurrentValues.SetValues(profile);
 
                 context.Entry(dbEntryProfile.Location).CurrentValues.SetValues(profile.Location);
-                //context.Entry(dbEntryProfile).State = EntityState.Modified;
-                //context.Entry(dbEntryProfile).Reference("Location").CurrentValue = profile.Location;
-
-                //context.CustomerProfiles.Attach(profile);
-                //context.Entry(profile).State = EntityState.Modified;
             }
                 context.SaveChanges();
         }

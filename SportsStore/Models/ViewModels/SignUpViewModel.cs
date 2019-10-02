@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SportsStore.Models.ViewModels
 {
@@ -12,13 +8,10 @@ namespace SportsStore.Models.ViewModels
         [Display(Name = "Логин")]
         public string UserName { get; set; }
 
-
-
         [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
 
         [Required]
         [StringLength(100, ErrorMessage = "Длина {0} должна быть не менее {2} символов.", MinimumLength = 6)]

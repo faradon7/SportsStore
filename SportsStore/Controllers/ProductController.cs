@@ -17,18 +17,15 @@ namespace SportsStore.Controllers
             repository = repo;
         }
 
-
         public ViewResult List(string category, int productPage = 1)
         {
-            var a = HttpContext.User.Identity.Name;
-            return
-            View(new ProductListViewModel
+            return View(new ProductListViewModel
             {
                 Products = repository.Products
                     .Where(p => category == null || p.Category == category)
-                    .OrderBy(p => p.ProductID)              //упорядочить
-                    .Skip((productPage - 1) * PageSize)     //пропустить первые
-                    .Take(PageSize),                        //взять следующие
+                    .OrderBy(p => p.ProductID)              
+                    .Skip((productPage - 1) * PageSize)     
+                    .Take(PageSize),                        
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = productPage,

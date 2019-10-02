@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace SportsStore.Models
 {
@@ -24,6 +23,7 @@ namespace SportsStore.Models
             {
                 Product dbEntry = context.Products
                     .FirstOrDefault(p => p.ProductID == product.ProductID);
+
                 if (dbEntry != null)
                 {
                     dbEntry.Name = product.Name;
@@ -45,6 +45,7 @@ namespace SportsStore.Models
                 context.Products.Remove(dbEntry);
                 context.SaveChanges();
             }
+
             return dbEntry;
         }
     }

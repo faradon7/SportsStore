@@ -7,16 +7,19 @@ using SportsStore.Infrastructure;
 using System.Linq;
 using SportsStore.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
 
 namespace SportsStore.Controllers.API_Controllers
 {
     [Route("api/[controller]")]
     public class AccountApiController : Controller
     {
+        #region private properties
+
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
         private RoleManager<ApplicationRole> roleManager;
+
+        #endregion
 
         public AccountApiController(UserManager<ApplicationUser> userMgr,
             SignInManager<ApplicationUser> signInMgr, RoleManager<ApplicationRole> roleMngr)
@@ -24,7 +27,6 @@ namespace SportsStore.Controllers.API_Controllers
             userManager = userMgr;
             signInManager = signInMgr;
             roleManager = roleMngr;
-            IdentitySeedData.EnsurePopulated(userMgr, roleMngr).Wait();       //only for enviroment = production
         }
 
         [HttpGet]
@@ -59,6 +61,5 @@ namespace SportsStore.Controllers.API_Controllers
 
             return NotFound();
         }
-
     }
 }

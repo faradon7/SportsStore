@@ -14,8 +14,8 @@ namespace SportsStore.Controllers.API_Controllers
 
         public AdminApiController(IProductRepository repo)
             => repository = repo;
-        public ViewResult Index() => View();
 
+        public ViewResult Index() => View();
 
         [HttpGet]
         [Route("api/[controller]")]
@@ -40,8 +40,6 @@ namespace SportsStore.Controllers.API_Controllers
             }
         }
 
-        public ViewResult Create() => View("Edit", new Product());
-
         [HttpDelete("api/[controller]/{id}")]
         public StatusCodeResult Delete(int id)
         {
@@ -50,6 +48,7 @@ namespace SportsStore.Controllers.API_Controllers
             {
                 return Ok();
             }
+
             return NotFound();
         }
     }

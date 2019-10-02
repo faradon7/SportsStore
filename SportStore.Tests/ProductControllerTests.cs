@@ -16,13 +16,6 @@ namespace SportStore.Tests
         public void can_Paginate()
         {
             //Arrange
-            /*глагол
-                договориться, устраивать, аранжировать, располагать, договариваться,
-                выстраивать, подстроить, принимать меры, улаживать, подготавливать, 
-                классифицировать, регулировать, монтировать, приспосабливать, 
-                приводить в порядок, обделывать, уславливаться, сговариваться, переделывать, 
-                приходить к соглашению
-            */
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
             mock.Setup(m => m.Products).Returns((new Product[] {
@@ -42,8 +35,6 @@ namespace SportStore.Tests
             ProductListViewModel result = controller.List(null, 2).ViewData.Model as ProductListViewModel;
 
             //Assert
-            /* глагол, утверждать, отстаивать, заявлять, защищать, доказывать, предъявлять обвинение
-             */
             Product[] prodArray = result.Products.ToArray();
             Assert.True(prodArray.Length == 2);
             Assert.Equal("P4", prodArray[0].Name);
