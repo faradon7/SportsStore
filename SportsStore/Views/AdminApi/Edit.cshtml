@@ -4,30 +4,31 @@
     Layout = "_AdminLayout";
 }
 
-<form asp-action ="Edit" method="post">
-<input type="hidden" asp-for="ProductID" />
+<form >
+    <input type="hidden" data-val="true" data-val-required="The ProductID field is required." id="ProductID" name="ProductID" value="0" />
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <div><span asp-validation-for="Name" class="text-danger"></span></div>
-        <input asp-for="Name" class="form-control"/>
+        <label for="Name">Name</label>
+        <div><span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span></div>
+        <input class="form-control" type="text" data-val="true" data-val-required="Please enter a product name" id="Name" name="Name" value="" />
     </div>
     <div class="form-group">
-        <label asp-for="Description"></label>
-        <div><span asp-validation-for="Description" class="text-danger"></span></div>
-        <textarea asp-for="Description" class="form-control"></textarea>
+        <label for="Description">Description</label>
+        <div><span class="text-danger field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span></div>
+        <textarea class="form-control" id="Description" name="Description">
+</textarea>
     </div>
     <div class="form-group">
-        <label asp-for="Category"></label>
-        <div><span asp-validation-for="Category" class="text-danger"></span></div>
-        <input asp-for="Category" class="form-control" />
+        <label for="Category">Category</label>
+        <div><span class="text-danger field-validation-valid" data-valmsg-for="Category" data-valmsg-replace="true"></span></div>
+        <input class="form-control" type="text" id="Category" name="Category" value="" />
     </div>
     <div class="form-group">
-        <label asp-for="Price"></label>
-        <div><span asp-validation-for="Price" class="text-danger"></span></div>
-        <input asp-for="Price" class="form-control" />
+        <label for="Price">Price</label>
+        <div><span class="text-danger field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span></div>
+        <input class="form-control" type="text" data-val="true" data-val-number="The field Price must be a number." data-val-required="Please enter a positive price" id="Price" name="Price" value="0,00" />
     </div>
     <div class="text-center">
         <button class="btn btn-primary" type="submit">Save</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a> 
+        <a class="btn btn-secondary" href="/Admin/Index">Cancel</a>
     </div>
 </form>

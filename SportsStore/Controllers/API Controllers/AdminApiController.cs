@@ -8,7 +8,6 @@ using System.Linq;
 
 namespace SportsStore.Controllers.API_Controllers
 {
-    //[Authorize(Roles = Roles.Admin)]
     public class AdminApiController : Controller
     {
         private IProductRepository repository;
@@ -26,42 +25,32 @@ namespace SportsStore.Controllers.API_Controllers
             View(repository.Products
                 .FirstOrDefault(p => p.ProductID == productId));
 
-        [HttpPost]
-        public IActionResult Edit(Product product)
+        [HttpPost("api/[controller]")]
+        public Product Post([FromBody] Product product)
         {
             if (ModelState.IsValid)
             {
                 repository.SaveProduct(product);
                 TempData["message"] = $"{product.Name} has been saved";
-                return RedirectToAction("Index");
+                return product;
             }
             else
             {
-                //there is something wrong with the data values
-                return View(product);
+                return null;
             }
         }
 
         public ViewResult Create() => View("Edit", new Product());
 
-        [Route("api/[controller]")]
-        [HttpDelete("{Id}")]
-        public StatusCodeResult Delete(int Id)
+        [HttpDelete("api/[controller]/{id}")]
+        public StatusCodeResult Delete(int id)
         {
-            Product deletedProduct = repository.DeleteProduct(Id);
+            Product deletedProduct = repository.DeleteProduct(id);
             if (deletedProduct != null)
             {
                 return Ok();
             }
             return NotFound();
-        }
-
-        [HttpPost]
-        public IActionResult SeedDatabase()
-        {
-            SeedData.EnsurePopulated(HttpContext.RequestServices);
-
-            return RedirectToAction(nameof(Index));
         }
     }
 }
