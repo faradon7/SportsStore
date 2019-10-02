@@ -9,12 +9,8 @@ namespace SportsStore.Models
         private const string adminUser = "Admin";
         private const string adminPassword = "Secret123$";
 
-        /*public static async void EnsurePopulated(IApplicationBuilder app) */      //This used for environment = development
-        public static async Task EnsurePopulated(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)     //this using fo environment = production
+        public static async Task EnsurePopulated(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
-            //UserManager<IdentityUser> userManager = app.ApplicationServices       //This used for environment = development
-            //    .GetRequiredService<UserManager<IdentityUser>>();
-
             //Adding Roles
             if (await roleManager.FindByNameAsync(Roles.Admin) == null)
             {
@@ -25,9 +21,6 @@ namespace SportsStore.Models
             {
                 await roleManager.CreateAsync(new ApplicationRole(Roles.User, Roles.UserDecription));
             }
-
-
-            //ApplicationUser user = await userManager.FindByIdAsync(adminUser);
 
             if ((await userManager.GetUsersInRoleAsync(Roles.Admin)).Count == 0)
             {
