@@ -12,7 +12,7 @@ namespace SportStore.Tests
     public class AdminControllerTests
     {
         [Fact]
-        public void Index_Contains_All_Products()
+        public void IndexContainsAllProducts()
         {
             // Arrange - create the mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -38,7 +38,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Edit_Product()
+        public void CanEditProduct()
         {
             //Arrange - create the mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -65,7 +65,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Cannot_Edit_Non_Existent_Product()
+        public void CannotEditNonExistentProduct()
         {
             //Arrange - create the mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -87,7 +87,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Save_Valid_Changes()
+        public void CanSaveValidChanges()
         {
             // Arrange - create mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -110,7 +110,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Cannot_Save_Invalid_Changes()
+        public void CannotSaveInvalidChanges()
         {
             // Arrange - create mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -129,7 +129,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Delete_Valid_Products()
+        public void CanDeleteValidProducts()
         {
             // Arrange - create a Product
             Product prod = new Product { ProductID = 2, Name = "Test" };

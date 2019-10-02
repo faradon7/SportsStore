@@ -9,7 +9,7 @@ namespace SportStore.Tests
     public class OrderControllerTest
     {
         [Fact]
-        public void Cannot_Checkout_Empty_Cart()
+        public void CannotCheckoutEmptyCart()
         {
             //Arrange - creating MOck repo
             Mock<IOrderRepository> mockOrderRepo = new Mock<IOrderRepository>();
@@ -39,7 +39,7 @@ namespace SportStore.Tests
 
         }
         [Fact]
-        public void Cannot_Checkout_Invalid_ShippingDetails()
+        public void CannotCheckoutInvalidShippingDetails()
         {
             //Arrange - create a mock order repository
             Mock<IOrderRepository> mockOrderRepo = new Mock<IOrderRepository>();
@@ -70,7 +70,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Checkout_And_Submit_Order()
+        public void CanCheckoutAndSubmitOrder()
         {
             //Arrange create a mock order repository
             Mock<IOrderRepository> mockOrderRepo = new Mock<IOrderRepository>();

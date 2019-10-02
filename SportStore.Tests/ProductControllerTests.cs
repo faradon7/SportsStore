@@ -13,7 +13,7 @@ namespace SportStore.Tests
     public class ProductControllerTests
     {
         [Fact]
-        public void can_Paginate()
+        public void CanPaginate()
         {
             //Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -42,7 +42,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Send_Pagination_View_Model()
+        public void CanSendPaginationViewModel()
         {
             //Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -71,7 +71,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Filter_Products()
+        public void CanFilterProducts()
         {
             //Arrange
             // -create the mock repository
@@ -101,7 +101,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Generate_Category_Specific_Product_Count()
+        public void GenerateCategorySpecificProductCount()
         {
             //Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();

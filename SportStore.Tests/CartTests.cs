@@ -7,7 +7,7 @@ namespace SportStore.Tests
     public class CartTests
     {
         [Fact]
-        public void Can_Add_New_Lines()
+        public void CanAddNewLines()
         {
             //Arrange
             Product p1 = new Product { ProductID = 1, Name = "P1" };
@@ -28,7 +28,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Add_Quantity_For_Existing_Lines()
+        public void CanAddQuantityForExistingLines()
         {
             //Arrange
             Product p1 = new Product { ProductID = 1, Name = "P1" };
@@ -50,7 +50,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Remove_Line()
+        public void CanRemoveLine()
         {
             //Arrange
             Product p1 = new Product { ProductID = 1, Name = "P1" };
@@ -72,7 +72,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Calculate_Cart_Total()
+        public void CalculateCartTotal()
         {
             //Arrange
             Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100M };
@@ -92,7 +92,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Can_Clear_Contents()
+        public void CanClearContents()
         {
             //Arrange
             Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100M };

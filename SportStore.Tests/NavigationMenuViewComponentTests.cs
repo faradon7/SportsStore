@@ -13,7 +13,7 @@ namespace SportStore.Tests
     public class NavigationMenuViewComponentTests
     {
         [Fact]
-        public void Can_Select_Categories()
+        public void CanSelectCategories()
         {
             //Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -37,7 +37,7 @@ namespace SportStore.Tests
         }
 
         [Fact]
-        public void Indicates_Selected_Category()
+        public void IndicatesSelectedCategory()
         {
             //Arrange
             string categoryToSelect = "Apples";
